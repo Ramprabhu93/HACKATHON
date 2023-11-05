@@ -1,0 +1,20 @@
+SELECT * FROM hackathon.fact_order_lines;
+/*Total delivery qty*/
+select sum(delivery_qty) as Total_delivery_qty from hackathon.fact_order_lines
+/*12969157*/
+
+/*Total orders*/
+select count( ï»¿order_id) as Total_orders from hackathon.fact_order_lines
+--No.of.orders:57096--
+
+/*Total order qty*/
+select sum(order_qty) as Total_order_qty from hackathon.fact_order_lines
+/*13426936*/
+
+/*Line fill Rate*/
+select sum(delivery_qty) / count( ï»¿order_id) as Lifr from hackathon.fact_order_lines
+--227.1465--
+
+/*VOFR*/
+SELECT sum(delivery_qty)/sum(order_qty) as VOFR from hackathon.fact_order_lines
+/*0.9659*/
